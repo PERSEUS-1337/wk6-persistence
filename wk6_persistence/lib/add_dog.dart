@@ -58,9 +58,11 @@ class _AddDogPageState extends State<AddDogPage> {
         child: const Text('Save'),
         onPressed: () {
           //create an instance of the data you want to save
+          Dog dog = Dog(_name.text, _age.text);
 
           //write formatted data to textfile
-
+          widget.fileHandler.writeString(dog.dogData);
+          
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Processing Data')),
           );
